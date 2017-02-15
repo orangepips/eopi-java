@@ -1,20 +1,21 @@
 package com.github.orangepips.eopi.ch6;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.Random;
 
+/**
+ * Sample offline data
+ * @author mlesko
+ */
 public class Problem11 {
-	public List<Integer> getSample(List<Integer> elements, int size) {
-		List<Integer> sample = new ArrayList<Integer>();
+	public static List<Integer> getSample(List<Integer> elements, int size) {
+		Random gen = new Random();
 		for (int i = 0; i < size; i++) {
-			sample.add(elements.remove(nextInt(0, elements.size() - 1)));
+			Collections.swap(elements, i, i + gen.nextInt(elements.size() - i));
 		}
-		return sample;
+		return elements;
 	}
 	
-	public static int nextInt(int min, int max) {
-		return ThreadLocalRandom.current().nextInt(min, max + 1);
-	}
+	
 }

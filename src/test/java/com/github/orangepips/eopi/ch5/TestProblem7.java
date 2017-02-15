@@ -8,9 +8,6 @@ import org.junit.Test;
 
 
 public class TestProblem7 {
-	// http://stackoverflow.com/questions/5686755/meaning-of-epsilon-argument-of-assertequals-for-double-values
-	private static final double DELTA = 1/10;
-	
 	@Test
 	public void testExponentiation() {
 		Random random = new Random();

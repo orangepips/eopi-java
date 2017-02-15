@@ -9,15 +9,9 @@ public class Problem6 {
 	public static int maxProfit(int[] prices) {
 		int profit = 0;
 		int minPrice = Integer.MAX_VALUE;
-		for (int i = 0; i < prices.length; i++) {
-			int price = prices[i];
-			if (price < minPrice) {
-				minPrice = price;
-				continue;
-			}
-			if ((price - minPrice) > profit) {
-				profit = price - minPrice;
-			}
+		for (int price: prices) {
+			profit = Math.max(profit, price - minPrice);
+			minPrice = Math.min(minPrice, price);
 		}
 		return profit;
 	}
